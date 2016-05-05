@@ -5,5 +5,5 @@ cat <<EOF
 config_vars:
   CAN_SET_IN_RELEASE: doesnt_seem_to_work
 default_process_types:
-  web: R --no-save --gui-none < /app/startHitandmiss.R
+  web: R --no-save --gui-none < /app/runApp.R
 EOF
