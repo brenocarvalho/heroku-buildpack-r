@@ -111,7 +111,7 @@ echo "Executing init.r script" | indent
   options(repos=r);
   `cat $BUILD_DIR/init.r`
 RPROG
-
+export PATH=$PATH:/app/vendor/R/bin/
 echo "R $R_VERSION successfully installed" | indent
 
 # need to copy binaries back so that any
