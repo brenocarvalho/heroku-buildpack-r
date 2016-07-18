@@ -75,7 +75,7 @@ curl $R_BINARIES -s -o - | tar xzf - -C $BUILD_DIR
 
 #echo "alias gfortran=/app/.apt/usr/bin/gfortran-4.8" >> /.bashrc
 alias gfortran=/app/.apt/usr/bin/gfortran-4.8
-source "/.bashrc"
+#source "/.bashrc"
 mv $VENDOR_DIR/.apt/ $BUILD_DIR
 
 # need to copy the binaries to /app/vendor so that R works when compiling packages
