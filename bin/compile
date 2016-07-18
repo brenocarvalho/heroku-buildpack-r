@@ -72,6 +72,8 @@ echo "Vendoring R $R_VERSION for $STACK stack ($BUILD_PACK_VERSION)" | indent
 # download and unpack binaries
 echo "Downloading and unpacking R binaries ($R_BINARIES)" | indent
 curl $R_BINARIES -s -o - | tar xzf - -C $BUILD_DIR
+
+echo "F77=/app/.apt/usr/bin/gfortran-4.8" >> $VENDOR_DIR/R/config.site
 mv $VENDOR_DIR/.apt/ $BUILD_DIR
 
 # need to copy the binaries to /app/vendor so that R works when compiling packages
@@ -90,7 +92,8 @@ cp -R /usr/lib/gcc/x86_64-linux-gnu/$GCC_VERSION/* /app/.apt/usr/lib/gcc/x86_64-
 
 # set environment variables, needed for compiling packages
 source "$BUILDPACK_DIR/bin/r_environment.sh"
-alias gfortran=/app/.apt/usr/bin/gfortran-4.8
+#alias gfortran=/app/.apt/usr/bin/gfortran-4.8
+
 # copy over environment
 mkdir -p $BUILD_DIR/.profile.d
 cp "$BUILDPACK_DIR/bin/r_environment.sh" "$BUILD_DIR/.profile.d/r_environment.sh"
