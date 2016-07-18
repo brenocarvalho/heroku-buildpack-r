@@ -86,12 +86,11 @@ cp -R $VENDOR_DIR/R/* /app/vendor/R
 # that liblto_plugin.so and others can be found
 # (tried using LDFLAGS, LD_LIBRARY_PATH and LIBRARY_PATH but didn't work)
 cp -R /usr/lib/gcc/x86_64-linux-gnu/$GCC_VERSION/* /app/.apt/usr/lib/gcc/x86_64-linux-gnu/$GCC_VERSION
-cp /app/.apt/usr/bin/gfortran-4.8 /app/.apt/usr/bin/gfortran
 # cp /usr/lib/gcc/x86_64-linux-gnu/$GCC_VERSION/liblto_plugin.so /app/.apt/usr/lib/gcc/x86_64-linux-gnu/$GCC_VERSION/liblto_plugin.so
 
 # set environment variables, needed for compiling packages
 source "$BUILDPACK_DIR/bin/r_environment.sh"
-
+export F77="/app/.apt/usr/bin/gfortran-4.8"
 # copy over environment
 mkdir -p $BUILD_DIR/.profile.d
 cp "$BUILDPACK_DIR/bin/r_environment.sh" "$BUILD_DIR/.profile.d/r_environment.sh"
