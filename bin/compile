@@ -73,7 +73,9 @@ echo "Vendoring R $R_VERSION for $STACK stack ($BUILD_PACK_VERSION)" | indent
 echo "Downloading and unpacking R binaries ($R_BINARIES)" | indent
 curl $R_BINARIES -s -o - | tar xzf - -C $BUILD_DIR
 
-echo "F77=/app/.apt/usr/bin/gfortran-4.8" >> $VENDOR_DIR/R/config.site
+echo "alias gfortran=/app/.apt/usr/bin/gfortran-4.8" >> /.bashrc
+
+source "/.bashrc"
 mv $VENDOR_DIR/.apt/ $BUILD_DIR
 
 # need to copy the binaries to /app/vendor so that R works when compiling packages
