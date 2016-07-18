@@ -104,6 +104,7 @@ touch /app/vendor/R/lib64/R/doc/html/R.css
 # install dependencies from CRAN
 echo "Executing init.r script" | indent
 
+mkdir -p ~/.R
 echo "F77=/app/.apt/usr/bin/gfortran-4.8">> ~/.R/Makevars
 
 # set the CRAN mirror and run the init.r program
