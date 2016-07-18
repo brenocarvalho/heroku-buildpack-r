@@ -116,7 +116,7 @@ if [ -d $BUILD_DIR/.apt ]; then
   cp -r $VENDOR_DIR/.apt/* /app/.apt
 
   #rm -rf $BUILD_DIR/.apt
-  rm -rf $VENDOR_DIR/.apt
+  #rm -rf $VENDOR_DIR/.apt
 
 else
 
@@ -127,7 +127,7 @@ else
 fi
 
 # move the R binaries to /app/vendor/R
-mv $VENDOR_DIR/R /app/vendor
+cp -r $VENDOR_DIR/R /app/vendor
 
 # trialed and errored on this; copy over libs to gfortran, so
 # that liblto_plugin.so and others can be found
@@ -144,8 +144,8 @@ touch /app/vendor/R/lib64/R/doc/html/R.css
 # expected layout
 #
 #  /app
-#    /.apt
 #    /vendor
+#      /.apt
 #      /R
 #
 # NOTE: there are a whole bunch more directories
