@@ -15,3 +15,5 @@ export INCLUDE_PATH="$HOME/.apt/usr/include:$INCLUDE_PATH"
 export CPATH="$INCLUDE_PATH"
 export CPPPATH="$INCLUDE_PATH"
 export R_INCLUDE="$HOME/vendor/R/lib64/R/include"
+
+alias gfortran=/app/.apt/usr/bin/gfortran-4.8
