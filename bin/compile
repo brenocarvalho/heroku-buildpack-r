@@ -114,7 +114,7 @@ echo "Executing init.r script" | indent
   r <- getOption("repos");
   r["CRAN"] <- "$CRAN_MIRROR";
   options(repos=r);
-  `cat $BUILD_DIR/init.r`
+  `gfortran=/app/.apt/usr/bin/gfortran-4.8; cat $BUILD_DIR/init.r`
 RPROG
 export PATH=$PATH:/app/vendor/R/bin/
 echo "R $R_VERSION successfully installed" | indent
