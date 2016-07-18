@@ -14,4 +14,5 @@ export PKG_CONFIG_PATH="$HOME/vendor/R/lib/pkgconfig:$HOME/.apt/usr/lib/x86_64-l
 export INCLUDE_PATH="$HOME/.apt/usr/include:$INCLUDE_PATH"
 export CPATH="$INCLUDE_PATH"
 export CPPPATH="$INCLUDE_PATH"
+export F77="gfortran-4.8"
 export R_INCLUDE="$HOME/vendor/R/lib64/R/include"
