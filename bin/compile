@@ -73,9 +73,6 @@ echo "Vendoring R $R_VERSION for $STACK stack ($BUILD_PACK_VERSION)" | indent
 echo "Downloading and unpacking R binaries ($R_BINARIES)" | indent
 curl $R_BINARIES -s -o - | tar xzf - -C $BUILD_DIR
 
-#echo "alias gfortran=/app/.apt/usr/bin/gfortran-4.8" >> /.bashrc
-alias gfortran=/app/.apt/usr/bin/gfortran-4.8
-#source "/.bashrc"
 mv $VENDOR_DIR/.apt/ $BUILD_DIR
 
 # need to copy the binaries to /app/vendor so that R works when compiling packages
@@ -114,7 +111,8 @@ echo "Executing init.r script" | indent
   r <- getOption("repos");
   r["CRAN"] <- "$CRAN_MIRROR";
   options(repos=r);
-  `alias gfortran=/app/.apt/usr/bin/gfortran-4.8; cat $BUILD_DIR/init.r`
+  system('alias gfortran=/app/.apt/usr/bin/gfortran-4.8')
+  `cat $BUILD_DIR/init.r`
 RPROG
 export PATH=$PATH:/app/vendor/R/bin/
 echo "R $R_VERSION successfully installed" | indent
